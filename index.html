@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./pako.min.js" type="module"></script>
+    <script src="./qrcode.js"></script>
+  </head>
+  <body>
+    <h2>
+      Upload a file:
+    </h2>
+    <input type="file" onchange="openFile(event)" /><br />
+    <p id="output">Waiting for input...</p>
+    <script>
+      let openFile = function (event) {
+        const input = event.target;
+
+        const reader = new FileReader();
+        reader.readAsArrayBuffer(input.files[0]);
+
+        reader.onload = function () {
+          const res = reader.result;
+          const output = document.getElementById("output");
+          const view = new Uint8Array(res);
+          var pak = pako.deflate(view);
+          const datum = pak.reduce((e, curr) => e.toString(10) + curr, "");
+          debugger;
+
+          drawToCanvas(datum);
+        };
+      };
+
+      function drawToCanvas(datum) {
+        QRCode.toCanvas(document.getElementById("canvas"), datum, {}, function (
+          error
+        ) {
+          if (error) console.error(error);
+          console.log("success!");
+        });
+      }
+    </script>
+
+    <canvas id="canvas"></canvas>
+  </body>
+</html>
