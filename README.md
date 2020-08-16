@@ -1,16 +1,18 @@
 # qootlet
 
 <img src="https://gist.githubusercontent.com/SinaKhalili/9ff008f430961097785580c1ee4a22ab/raw/efeb37731b479812fa541a7e9ccc027ad6b9f92f/arbitrary_lengthqr.gif" align="right"
-     alt="A very beautiful man, zooming infinitely">
+     alt="A very beautiful man, zooming infinitely" width="300">
 
 Qootlet encodes arbitrary amounts of data in QR codes by chaining them together.
 A very simple header is added to each QR identifying which chunk it is the series.
 The reader assembles the chunks and recreates the original data. The chunks do not
 have to be read in order.
 
+<h2 align="center"><a  href="https://qootlet.sinakhalili.com">Live Demo</a></h2> (as opposed to dead one?)
+
+
 ## Usage
 
-<h3 align="center"><a  href="https://qootlet.sinakhalili.com">Live Demo</a></h3> (as opposed to dead one?)
 
 Uploading a file will spit out a bunch of QR codes. Right-click `save-as` to save the images.
 
@@ -19,8 +21,8 @@ The namesake of the project is to print them and put them
 in a nice little booklet, so that you can take it around and share good.
 Love it like your own booklet (you would never tell the booklet it's true origins).
 
-<p align="center">
-    <img src="./img/booklet.JPG">
+<p align="center" >
+    <img src="./img/booklet.JPG" width="250">
 </p>
 
 The problem with this method (other than knowing deep down, the booklet will one day see you die) is
