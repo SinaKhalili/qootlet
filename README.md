@@ -1,14 +1,14 @@
 # qootlet
 
 <img src="https://gist.githubusercontent.com/SinaKhalili/9ff008f430961097785580c1ee4a22ab/raw/efeb37731b479812fa541a7e9ccc027ad6b9f92f/arbitrary_lengthqr.gif" align="right"
-     alt="A very beautiful man, zooming infinitely" width="300">
+     alt="A very beautiful man, zooming infinitely" width="250">
 
 Qootlet encodes arbitrary amounts of data in QR codes by chaining them together.
 A very simple header is added to each QR identifying which chunk it is the series.
 The reader assembles the chunks and recreates the original data. The chunks do not
 have to be read in order.
 
-<h2 align="center"><a  href="https://qootlet.sinakhalili.com">Live Demo</a></h2> (as opposed to dead one?)
+<h2 align="center"><a  href="https://awesome-kepler-3604dd.netlify.app/">Live Demo</a></h2> (as opposed to dead one?)
 
 
 ## Usage
@@ -43,6 +43,7 @@ Now you can read back the data super fast! Give it a few loops :ok_hand:
 - [jsQR](https://github.com/cozmo/jsQR) 👉 For reading the QR code
 - [node-qrcode](https://github.com/soldair/node-qrcode) 👉 For the QR code creator
 - [FileSaver.js](https://github.com/eligrey/FileSaver.js) 👉 For saving files to the user's computer
+- Hosted on [Netlify](https://netlify.com) ❤️
 
 ### Projects not used but acted as inspiration which is also really important:
 
