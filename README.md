@@ -8,7 +8,7 @@ A very simple header is added to each QR identifying which chunk it is the serie
 The reader assembles the chunks and recreates the original data. The chunks do not
 have to be read in order.
 
-<h2 align="center"><a  href="https://awesome-kepler-3604dd.netlify.app/">Live Demo</a></h2> (as opposed to dead one?)
+<h2 align="center"><a  href="https://qootlet.sinakhalili.com">Live Demo</a></h2> (as opposed to dead one?)
 
 
 ## Usage
