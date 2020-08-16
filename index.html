@@ -6,6 +6,7 @@
     <title>Document</title>
     <script src="qrcode.js"></script>
     <script src="FileSaver.js"></script>
+    <script src="qrchunk.js"></script>
     <script src="jsQR.js" type="module"></script>
     <script src="reader.js" type="module"></script>
     <script src="writer.js"></script>
@@ -16,8 +17,7 @@
     </h2>
     <input type="file" onchange="openFile(event)" /><br />
     <p id="output">Waiting for input...</p>
-
-    <canvas id="canvas"></canvas>
+    <div id="qr_area"></div>
     <canvas id="canvas2" height="480" width="640"></canvas>
     <p id="loadingMessage"></p>
     <div id="output">
