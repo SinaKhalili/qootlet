@@ -5,7 +5,7 @@ var loadingMessage = document.getElementById("loadingMessage");
 var outputContainer = document.getElementById("output");
 var outputMessage = document.getElementById("outputMessage");
 var outputData = document.getElementById("outputData");
-export var mybytesread; // TODO: Remove this
+var chunkPooler = new QRChunkPooler();
 
 function drawLine(begin, end, color) {
   canvas.beginPath();
@@ -68,20 +68,25 @@ function tick() {
       );
       outputMessage.hidden = true;
       outputData.parentElement.hidden = false;
-      outputData.innerText = code.data;
       if (code.data.length > 0) {
         console.log(code.data);
+        let chunk = new QRChunk(code.data);
+        chunkPooler.add_chunk(chunk);
+        outputData.innerText = chunkPooler.chunk_status();
+        if (chunkPooler.finished_chunking()) {
+          const blubber = dataURItoBlob(chunkPooler.get_pooled_data());
+          alert(
+            "File reconstruction successful! Download will begin after click"
+          );
+          saveAs(blubber, "qooklet");
+        }
 
-        const blubber = dataURItoBlob(code.data);
-        saveAs(blubber, "return");
-        debugger;
         // TODO: Add pako deflation (only when inflation is implemented, obviously)
         // const uncompressed = pako.deflate(code.data);
         // debugger;
       }
     } else {
       outputMessage.hidden = false;
-      outputData.parentElement.hidden = true;
     }
   }
   requestAnimationFrame(tick);

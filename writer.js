@@ -8,7 +8,8 @@ function _base64ToArrayBuffer(base64) {
   return bytes.buffer;
 }
 
-var mybytes; // TODO: Remove this
+var thresh = 500;
+
 let openFile = function (event) {
   const input = event.target;
 
@@ -16,23 +17,35 @@ let openFile = function (event) {
   reader.readAsDataURL(input.files[0]);
 
   reader.onload = function () {
-    const res = reader.result;
+    let res = reader.result;
+    let result_slices = [];
     const output = document.getElementById("output");
-    mybytes = res;
 
-    debugger;
-    // TODO: Add automatic compression if possible
-    // const pak = pako.deflate(view);
-
-    drawToCanvas(res);
+    let chunk_num = 1;
+    let num_chunks = Math.ceil(res.length / thresh);
+    while (res.length > thresh) {
+      let curr_chunk = res.slice(0, thresh);
+      result_slices.push(
+        `QOT:${chunk_num.toString()}:${num_chunks.toString()}:${curr_chunk}`
+      );
+      res = res.slice(thresh);
+      chunk_num += 1;
+    }
+    result_slices.push(
+      `QOT:${chunk_num.toString()}:${num_chunks.toString()}:${res}`
+    );
+    result_slices.forEach((chunk) => drawToCanvas(chunk));
   };
 };
 
 function drawToCanvas(datum) {
-  QRCode.toCanvas(document.getElementById("canvas"), datum, {}, (error) => {
+  return QRCode.toCanvas(datum, {}, (error, canvas) => {
     if (error) {
       console.error(error);
     }
     console.log(datum);
+    console.log(canvas);
+    var qr_area = document.getElementById("qr_area");
+    qr_area.appendChild(canvas);
   });
 }
