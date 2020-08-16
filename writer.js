@@ -1,14 +1,14 @@
 function _base64ToArrayBuffer(base64) {
-  var binary_string = window.atob(base64);
-  var len = binary_string.length;
-  var bytes = new Uint8Array(len);
-  for (var i = 0; i < len; i++) {
+  let binary_string = window.atob(base64);
+  let len = binary_string.length;
+  let bytes = new Uint8Array(len);
+  for (let i = 0; i < len; i++) {
     bytes[i] = binary_string.charCodeAt(i);
   }
   return bytes.buffer;
 }
 
-var thresh = 500;
+let thresh = 500;
 
 let openFile = function (event) {
   const input = event.target;
@@ -43,9 +43,7 @@ function drawToCanvas(datum) {
     if (error) {
       console.error(error);
     }
-    console.log(datum);
-    console.log(canvas);
-    var qr_area = document.getElementById("qr_area");
+    let qr_area = document.getElementById("qr_area");
     qr_area.appendChild(canvas);
   });
 }

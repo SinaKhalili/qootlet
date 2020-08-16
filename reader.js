@@ -1,11 +1,11 @@
-var video = document.createElement("video");
-var canvasElement = document.getElementById("canvas2");
-var canvas = canvasElement.getContext("2d");
-var loadingMessage = document.getElementById("loadingMessage");
-var outputContainer = document.getElementById("output");
-var outputMessage = document.getElementById("outputMessage");
-var outputData = document.getElementById("outputData");
-var chunkPooler = new QRChunkPooler();
+const video = document.createElement("video");
+const canvasElement = document.getElementById("canvas2");
+const canvas = canvasElement.getContext("2d");
+const loadingMessage = document.getElementById("loadingMessage");
+const outputContainer = document.getElementById("output");
+const outputMessage = document.getElementById("outputMessage");
+const outputData = document.getElementById("outputData");
+const chunkPooler = new QRChunkPooler();
 
 function drawLine(begin, end, color) {
   canvas.beginPath();
@@ -69,7 +69,6 @@ function tick() {
       outputMessage.hidden = true;
       outputData.parentElement.hidden = false;
       if (code.data.length > 0) {
-        console.log(code.data);
         let chunk = new QRChunk(code.data);
         chunkPooler.add_chunk(chunk);
         outputData.innerText = chunkPooler.chunk_status();

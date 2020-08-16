@@ -43,7 +43,6 @@ class QRChunkPooler {
     return str;
   }
   finished_chunking() {
-    console.log(this.chunks);
     return this.chunks.length == this.num_chunks;
   }
   get_pooled_data() {
