@@ -38,6 +38,14 @@ Now you can read back the data super fast! Give it a few loops :ok_hand:
     <img src="./img/qr_gif.gif">
 </p>
 
+## Self-hosted
+
+Everything is done *client-side*, which means you can just clone this repo, open `index.html` and everything should work!
+
+There are no dependencies that are not already in the repo (see below), nor anything to rollup, bundle, or browserify 😗
+
+It is the responsibility of the user to compress their file before handing it to the qr encoder.
+
 ## Projects used: (I am eternally grateful)
 
 - [jsQR](https://github.com/cozmo/jsQR) 👉 For reading the QR code
